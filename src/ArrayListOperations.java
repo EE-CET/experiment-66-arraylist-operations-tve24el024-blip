@@ -1,28 +1,32 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayListOperations {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
 
-        int n = input.nextInt();
-        input.nextLine();
+        Scanner sc = new Scanner(System.in);
 
-        String[] items = input.nextLine().split(" ");
-        ArrayList<String> cart = new ArrayList<>();
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        String[] items = sc.nextLine().split(" ");
+        String search = sc.nextLine();
+
+        ArrayList<String> list = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            cart.add(items[i]);
+            list.add(items[i]);
         }
 
-        Collections.sort(cart);
+        Collections.sort(list);
 
-        String search = input.nextLine();
+        System.out.println("Sorted Items: " + list);
 
-        System.out.println("Sorted Items: " + cart);
-        System.out.println(cart.contains(search) ? "Found" : "Not Found");
+        if (list.contains(search)) {
+            System.out.println("Found");
+        } else {
+            System.out.println("Not Found");
+        }
 
-        input.close();
+        sc.close();
     }
 }
